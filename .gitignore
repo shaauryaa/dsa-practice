@@ -15,7 +15,6 @@ bin/
 out/
 
 # IDE / editor files
-.vscode/
 .idea/
 *.sln
 *.vcxproj
