@@ -9,3 +9,4 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | Question | Topic | Difficulty | Solved | Time Taken | Notes |
 |---|---|---|---|---|---|
 | [Largest Element](https://takeuforward.org/plus/dsa/problems/largest-element?source=strivers-a2z-dsa-track) | Arrays | Easy | Yes | 5 mins | O(n) time, O(1) space · brute = optimal · init largest to nums[0], loop from index 1 |
+| [Second Largest Element](https://takeuforward.org/plus/dsa/problems/second-largest-element?source=strivers-a2z-dsa-track) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · single pass tracking largest & secondLargest |
