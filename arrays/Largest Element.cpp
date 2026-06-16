@@ -27,7 +27,8 @@ class Solution {
     int largestElement(vector<int>& nums) {
         if (nums.empty()) return -1;  // remember vecname.empty()
 
-        int largest = nums[0];
+        int largest =
+            nums[0];  // initialize largest with the first element of the array
         for (int i = 1; i < nums.size();
              i++) {  // start from 1, not 0 as 0 is already initialized as the
                      // largest element and remember () after vecname.size

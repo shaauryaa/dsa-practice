@@ -1,6 +1,6 @@
 // Problem  : 189. Rotate Array
 // Link     : https://leetcode.com/problems/rotate-array/
-// Difficulty: Easy
+// Difficulty: Medium
 // Date     : 14/06/2026
 
 #include <algorithm>

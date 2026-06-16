@@ -33,10 +33,8 @@ class Solution {
 
         int left = 1;  // start from 1, as the first element is always unique
         for (int right = 1; right < nums.size(); right++) {
-            if (nums[right] !=
-                nums[right - 1]) {  // check with the previous element
-                nums[left] =
-                    nums[right];  // place the unique element at index left
+            if (nums[right] != nums[right - 1]) {  // check with the previous element
+                nums[left] = nums[right];  // place the unique element at index left
                 left++;           // increment left for the next unique element
             }
         }
