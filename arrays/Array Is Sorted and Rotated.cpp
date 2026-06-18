@@ -35,15 +35,22 @@ class Solution {
         int N = nums.size();
         if (N == 1) return true;  // single element is always valid
 
-        int count = 1;
+        int count =
+            1;  // variable to count the number of sorted elements in the array
 
-        for (int i = 1; i < 2 * N; i++) {
-            if (nums[(i - 1) % N] <= nums[i % N]) {
-                count++;
+        for (int i = 1; i < 2 * N;
+             i++) {  // iterate through the array twice to handle the rotation
+            if (nums[(i - 1) % N] <=
+                nums[i % N]) {  // check if the current element is greater than
+                                // or equal to the previous element
+                count++;        // increment the count of sorted elements
             } else {
-                count = 1;
+                count = 1;  // reset the count if the current element is less
+                            // than the previous element
             }
-            if (count == N) return true;
+            if (count == N)
+                return true;  // if the count of sorted elements is equal to the
+                              // size of the array, return true
         }
 
         return false;

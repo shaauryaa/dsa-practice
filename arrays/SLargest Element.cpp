@@ -32,7 +32,8 @@ class Solution {
         if (nums.size() < 2)
             return -1;  // can't have second largest with < 2 element
         int largest = nums[0];
-        int secondlargest = INT_MIN;
+        int secondlargest = INT_MIN;  // initialize second largest to the
+                                      // minimum possible integer value
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i] > largest) {
                 secondlargest = largest;
