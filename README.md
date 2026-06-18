@@ -14,3 +14,4 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | Arrays | Easy | Yes | 15 mins | O(n) time, O(1) space · two-pointer, overwrite duplicates in place |
 | [Rotate Array](https://leetcode.com/problems/rotate-array/) | Arrays | Medium | Yes | 15 mins | O(n) time, O(1) space · reverse whole array, then reverse the two parts |
 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · two-pointer swap non-zeroes to front |
+| [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · single pass tracking current streak and max |
