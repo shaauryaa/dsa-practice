@@ -15,3 +15,4 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | [Rotate Array](https://leetcode.com/problems/rotate-array/) | Arrays | Medium | Yes | 15 mins | O(n) time, O(1) space · reverse whole array, then reverse the two parts |
 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · two-pointer swap non-zeroes to front |
 | [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · single pass tracking current streak and max |
+| [Single Number](https://leetcode.com/problems/single-number/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · XOR all elements, duplicates cancel out |
