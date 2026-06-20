@@ -16,3 +16,4 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · two-pointer swap non-zeroes to front |
 | [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · single pass tracking current streak and max |
 | [Single Number](https://leetcode.com/problems/single-number/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · XOR all elements, duplicates cancel out |
+| [Two Sum](https://leetcode.com/problems/two-sum/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(n) space · hashmap to store seen numbers and check complement |
