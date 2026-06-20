@@ -3,7 +3,7 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 4,
   "editor.rulers": [80],
-  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 80 }",
+  "C_Cpp.clang_format_style": "file",
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.compilerPath": "g++"
 }
