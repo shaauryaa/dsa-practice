@@ -17,3 +17,4 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · single pass tracking current streak and max |
 | [Single Number](https://leetcode.com/problems/single-number/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · XOR all elements, duplicates cancel out |
 | [Two Sum](https://leetcode.com/problems/two-sum/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(n) space · hashmap to store seen numbers and check complement |
+| [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Arrays | Medium | Yes | 10 mins | O(n) time, O(1) space · two-pointer on sorted array, shrink window by sum vs target |
