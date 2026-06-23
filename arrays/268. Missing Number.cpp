@@ -44,3 +44,20 @@ class Solution {
 // Optimal Complexity
 //   Time  : O(n)
 //   Space : O(1)
+
+// Sum Approach
+class Solution {
+   public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        long long expected = 1LL * n * (n + 1) / 2;  // calculate the expected sum of numbers from 0 to n using the formula n*(n+1)/2
+        long long actual = 0;                        // variable to store the actual sum of numbers in the input vector
+        for (int i = 0; i < n; i++) {
+            actual += nums[i];  // accumulate the sum of numbers in the input vector
+        }
+        return expected - actual;  // the missing number is the difference between the expected sum and the actual sum
+    }
+};
+// Optimal Complexity
+//   Time  : O(n)
+//   Space : O(1)
