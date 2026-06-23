@@ -29,6 +29,7 @@ Output: 8
 Explanation:
 n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.*/
 
+// XOR Approach
 class Solution {
    public:
     int missingNumber(vector<int>& nums) {
@@ -60,4 +61,46 @@ class Solution {
 };
 // Optimal Complexity
 //   Time  : O(n)
+//   Space : O(1)
+
+// Brute Force Approach
+class Solution {
+   public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        for (int expected = 0; expected <= n; expected++) {  // every value that should exist
+            bool found = false;
+            for (int i = 0; i < n; i++) {  // scan the array for it
+                if (nums[i] == expected) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return expected;  // not present anywhere -> missing
+        }
+        return -1;  // unreachable; a missing number always exists
+    }
+};
+
+// Brute Force Complexity
+//   Time  : O(n^2)
+//   Space : O(1)
+
+// Sort and Scan Approach
+class Solution {
+   public:
+    int missingNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end());  // sort the input vector in ascending order
+        int n = nums.size();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i) {  // check if the current number matches its index
+                return i;        // if not, return the index as the missing number
+            }
+        }
+        return n;  // if all numbers match their indices, the missing number is n
+    }
+};
+
+// Sort and Scan Complexity
+//   Time  : O(n log n)
 //   Space : O(1)
