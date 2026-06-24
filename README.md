@@ -20,3 +20,4 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Arrays | Medium | Yes | 10 mins | O(n) time, O(1) space · two-pointer on sorted array, shrink window by sum vs target |
 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | Arrays | Easy | Yes | 10 mins | O(m+n) time, O(1) space · fill from the back, compare last elements of both arrays |
 | [Missing Number](https://leetcode.com/problems/missing-number/) | Arrays | Easy | Yes | 10 mins | O(n) time, O(1) space · XOR all indices and values, missing number is the leftover |
+| [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | Arrays | Medium | Yes | 30 mins | O(n) time, O(n) space · prefix sum + hashmap, count how many times (sum-k) has appeared |
