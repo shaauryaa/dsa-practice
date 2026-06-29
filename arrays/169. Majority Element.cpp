@@ -58,7 +58,7 @@ class BetterSolution {
 };
 
 // Better Complexity
-//   Time  : O(2n)
+//   Time  : O(n)
 //   Space : O(n)
 
 // Optimal Solution using Boyer-Moore Voting Algorithm
