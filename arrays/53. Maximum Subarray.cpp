@@ -91,3 +91,32 @@ class Solution {
 // Optimal Complexity
 //   Time  : O(n)
 //   Space : O(1)
+
+// solution where the maximum subarray is also returned
+class SolutionWithSubarray {
+   public:
+    pair<int, vector<int>> maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        int maxSum = INT_MIN;  // initialize maxSum to the smallest possible integer
+        int sum = 0;           // initialize sum to keep track of the current subarray sum
+        int start = 0;         // starting index of the current subarray
+        int end = 0;           // ending index of the maximum subarray found so far
+        int tempStart = 0;     // temporary starting index for the current subarray
+
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];  // add the current element to the sum
+            if (sum > maxSum) {
+                maxSum = sum;
+                start = tempStart;  // update the starting index of the maximum subarray
+                end = i;            // update the ending index of the maximum subarray
+            }
+            if (sum < 0) {  // if the current sum is negative, reset it to 0 and update tempStart
+                sum = 0;
+                tempStart = i + 1;
+            }
+        }
+
+        vector<int> maxSubarray(nums.begin() + start, nums.begin() + end + 1);  // extract the maximum subarray
+        return {maxSum, maxSubarray};                                           // return both the maximum sum and the maximum subarray
+    }
+};
