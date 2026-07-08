@@ -117,5 +117,5 @@ class Solution {
 };
 
 // optimal complexity
-// Time complexity: O(n^2) where n is the size of the input array.
+// Time complexity: O(n^2) + O(n log n) where n is the size of the input array.
 // Space complexity: O(1) if we don't consider the space used for the output.
