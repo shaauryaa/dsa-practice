@@ -74,3 +74,45 @@ class Solution {
 // better approach complexity
 //   Time  : O(n)
 //   Space : O(n)
+
+// optimal approach
+class Solution {
+   public:
+    vector<int> majorityElement(vector<int>& nums) {
+        int n = nums.size();
+        int count1 = 0, count2 = 0;                  // to store the count of the two potential majority elements
+        int element1 = INT_MIN, element2 = INT_MIN;  // to store the two potential majority elements
+        for (int i = 0; i < n; i++) {
+            if (count1 == 0 && element2 != nums[i]) {  // if count1 is 0 and the current element is not equal to element2, we can set element1 to the current element and increment count1
+                count1 = 1;
+                element1 = nums[i];
+            } else if (count2 == 0 && element1 != nums[i]) {  // if count2 is 0 and the current element is not equal to element1, we can set element2 to the current element and increment count2
+                count2 = 1;
+                element2 = nums[i];
+            } else if (nums[i] == element1)  // if the current element is equal to element1, we can increment count1
+                count1++;
+            else if (nums[i] == element2)  // if the current element is equal to element2, we can increment count2
+                count2++;
+            else {  // if the current element is not equal to either element1 or element2, we can decrement both count1 and count2
+                count1--;
+                count2--;
+            }
+        }
+        vector<int> answer;
+        int minimum = (int)(n / 3) + 1;  // minimum count required for an element to be a majority element
+        count1 = 0, count2 = 0;          // reset the counts to 0 to count the occurrences of the two potential majority elements
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == element1)
+                count1++;  // count the occurrences of element1
+            else if (nums[i] == element2)
+                count2++;  // count the occurrences of element2
+        }
+        if (count1 >= minimum) answer.push_back(element1);  // if the count of element1 is greater than or equal to the minimum count required, add it to the answer vector
+        if (count2 >= minimum) answer.push_back(element2);  // if the count of element2 is greater than or equal to the minimum count required, add it to the answer vector
+        return answer;
+    }
+};
+
+// optimal approach complexity
+//   Time  : O(2n) as we are traversing the array twice first to find the elements and second to count their occurrences
+//  Space : O(1) as we are using constant space to store the counts and elements
