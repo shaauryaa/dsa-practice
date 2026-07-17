@@ -75,7 +75,7 @@ class Solution {
 //   Time  : O(n)
 //   Space : O(n)
 
-// optimal approach
+// optimal approach (extension of Boyer-Moore Voting Algorithm)
 class Solution {
    public:
     vector<int> majorityElement(vector<int>& nums) {
