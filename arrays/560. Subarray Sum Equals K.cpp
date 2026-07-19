@@ -19,6 +19,42 @@ Example 2:
 Input: nums = [1,2,3], k = 3
 Output: 2*/
 
+// brute force approach
+class Solution {
+   public:
+    int subarraySum(vector<int>& nums, int k) {
+        int n = nums.size();
+        int count = 0;                     // to store the count of subarrays whose sum equals k
+        for (int i = 0; i < n; i++) {      // loop through each element in the array
+            for (int j = i; j < n; j++) {  // loop through each subarray starting from the current element
+                int sum = 0;
+                for (int l = i; l <= j; l++) {
+                    sum += nums[l];
+                }
+                if (sum == k) count++;
+            }
+        }
+        return count;
+    }
+};
+
+// better approach
+class Solution {
+   public:
+    int subarraySum(vector<int>& nums, int k) {
+        int n = nums.size();
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum += nums[j];
+                if (sum == k) count++;
+            }
+        }
+        return count;
+    }
+};
+
 class Solution {
    public:
     int subarraySum(vector<int>& nums, int k) {
