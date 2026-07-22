@@ -38,6 +38,10 @@ class Solution {
     }
 };
 
+// brute force complexity
+//   Time  : O(n^3)
+//   Space : O(1)
+
 // better approach
 class Solution {
    public:
@@ -55,25 +59,26 @@ class Solution {
     }
 };
 
+// better approach complexity
+//   Time  : O(n^2)
+//   Space : O(1)
+
+// optimal approach
 class Solution {
    public:
     int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int, int> prefixCount;
-        prefixCount[0] = 1;  // empty prefix, sum = 0 occurs once
-
-        int sum = 0, count = 0;
-
-        for (int num : nums) {
-            sum += num;
-
-            // if (sum - k) has occurred before, those subarrays sum to k
-            if (prefixCount.find(sum - k) != prefixCount.end()) {
-                count += prefixCount[sum - k];
+        unordered_map<int, int> mapp;
+        mapp[0] = 1;
+        int prefixSum = 0;
+        int count = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; i++) {
+            prefixSum += nums[i];
+            if (mapp.find(prefixSum - k) != mapp.end()) {
+                count += mapp[prefixSum - k];
             }
-
-            prefixCount[sum]++;
+            mapp[prefixSum]++;
         }
-
         return count;
     }
 };
