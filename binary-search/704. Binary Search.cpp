@@ -1,5 +1,5 @@
 // Problem  : 704. Binary Search
-// Link     : https://leetcode.com/problems/two-sum/
+// Link     : https://leetcode.com/problems/binary-search/
 // Difficulty: Easy
 // Date     : 24/07/2026
 
@@ -44,3 +44,26 @@ class Solution {
 // Iterative Approach Complexity
 //   Time  : O(log(n))
 //   Space : O(1)
+
+// Recursive Approach
+class Solution {
+   public:
+    int binarySearch(vector<int>& nums, int low, int high, int target) {
+        if (low > high) return -1;
+        int mid = (low + high) / 2;
+        if (nums[mid] == target)
+            return mid;
+        else if (nums[mid] > target)
+            return binarySearch(nums, low, mid - 1, target);
+        else
+            return binarySearch(nums, mid + 1, high, target);
+    }
+
+    int search(vector<int>& nums, int target) {
+        return binarySearch(nums, 0, nums.size() - 1, target);
+    }
+};
+
+// Recursive Approach Complexity
+//   Time  : O(log(n))
+//   Space : O(log(n))
