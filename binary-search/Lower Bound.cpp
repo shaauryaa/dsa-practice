@@ -1,0 +1,42 @@
+// Problem  : Lower Bound
+// Link     : https://takeuforward.org/plus/dsa/problems/lower-bound-?source=strivers-a2z-dsa-track
+// Difficulty: Easy
+// Date     : 27/07/2026
+
+/*Example 1
+Input : nums= [1,2,2,3], x = 2
+Output:1
+Explanation:
+Index 1 is the smallest index such that arr[1] >= x.
+
+Example 2
+Input : nums= [3,5,8,15,19], x = 9
+Output: 3
+Explanation:
+Index 3 is the smallest index such that arr[3] >= x.*/
+
+#include <vector>
+using namespace std;
+
+class Solution {
+   public:
+    int lowerBound(vector<int>& nums, int target) {
+        int n = nums.size();
+        int low = 0;
+        int high = n - 1;
+        int answer = n;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] >= target) {
+                answer = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return answer;
+    }
+};
+
+// time compexity = O(logn)
+// space compexity = O(1)
