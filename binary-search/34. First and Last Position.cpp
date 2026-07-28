@@ -154,3 +154,59 @@ class Solution {
 // BS Approach Complexity (same complexity as lb ub apprach)
 //   Time  : 2 * O(logn)
 //   Space : O(1)
+
+// Count Occurrences in a Sorted Array
+// https://takeuforward.org/plus/dsa/problems/count-occurrences-in-a-sorted-array?source=strivers-a2z-dsa-track
+//  same code same time complexity only difference here is what we return
+//  we return the count of target here which is upper-lower+1 instead of returning lower and upper indices
+class Solution {
+   private:
+    int firstindex(vector<int>& nums, int target, int n) {
+        int low = 0;
+        int high = n - 1;
+        int first = -1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                first = mid;
+                high = mid - 1;
+            } else if (nums[mid] > target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return first;
+    }
+
+   private:
+    int lastindex(vector<int>& nums, int target, int n) {
+        int low = 0;
+        int high = n - 1;
+        int last = -1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                last = mid;
+                low = mid + 1;
+            } else if (nums[mid] > target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return last;
+    }
+
+   public:
+    int countOccurrences(vector<int>& nums, int target) {
+        int n = nums.size();
+        int lower = firstindex(nums, target, n);
+        if (lower == -1) return 0;
+        int upper = lastindex(nums, target, n);
+        return upper - lower + 1;
+    }
+};
+
+//   Time  : 2 * O(logn)
+//   Space : O(1)
