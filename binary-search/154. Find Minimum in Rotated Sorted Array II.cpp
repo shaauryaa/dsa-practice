@@ -52,3 +52,76 @@ class Solution {
 // Optimal Approach Complexity
 //   Time  : O(logn) in average case, O(n) in worst case
 //   Space : O(1)
+
+// Find out how many times the array is rotated
+
+// brute force approach will obviously be linear search taking O(n) time
+// where we can find the minimum element and its index in the array.
+// the index of the minimum element will give us the number of rotations in the array.
+
+int countRotations(vector<int>& nums) {
+    int n = nums.size();
+    int minIdx = 0;
+    for (int i = 1; i < n; i++) {
+        if (nums[i] < nums[minIdx]) minIdx = i;
+    }
+    return minIdx;
+}
+
+// brute force complexity
+//   Time  : O(n)
+//  Space : O(1)
+
+// optimal solution using binary search (with duplicate elements)
+class Solution {
+   public:
+    int countRotations(vector<int>& nums) {
+        int n = nums.size();
+        int low = 0;
+        int high = n - 1;
+        int minindex = 0;
+        int minvalue = INT_MAX;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            // if all three elements are equal, we cannot determine the minimum, so we reduce the search space
+            if (nums[low] == nums[mid] && nums[mid] == nums[high]) {
+                if (nums[low] < minvalue) {
+                    minvalue = nums[low];
+                    minindex = low;
+                }
+                low++;
+                high--;
+                continue;
+            }
+            // if the subarray is sorted, the minimum is the first element
+            if (nums[low] < nums[high]) {
+                if (nums[low] < minvalue) {
+                    minvalue = nums[low];
+                    minindex = low;
+                }
+                break;
+            }
+            // if the left half is sorted, the minimum is in the right half
+            if (nums[low] <= nums[mid]) {
+                if (nums[low] < minvalue) {
+                    minvalue = nums[low];
+                    minindex = low;
+                }
+                low = mid + 1;
+            }
+            // if the right half is sorted, the minimum is in the left half
+            else if (nums[mid] <= nums[high]) {
+                if (nums[mid] < minvalue) {
+                    minvalue = nums[mid];
+                    minindex = mid;
+                }
+                high = mid - 1;
+            }
+        }
+        return minindex;
+    }
+};
+
+// Optimal Approach Complexity
+//   Time  : O(logn) in average case, O(n) in worst case
+//   Space : O(1)
