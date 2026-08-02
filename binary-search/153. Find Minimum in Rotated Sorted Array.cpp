@@ -54,8 +54,6 @@ class Solution {
 //   Time  : O(logn)
 //   Space : O(1)
 
-// optimal solution with duplicate elemnts
-
 // Find out how many times the array is rotated
 
 /*Example 1
@@ -69,7 +67,7 @@ Output: 3
 Explanation: The original array should be [1, 2, 3, 4, 5]. So, we can notice that the array has been rotated 3 times.*/
 
 // optimal solution is a small modification of the find minimum code
-// we track the index of the minimum element as its index is equal to the number of times the array is roatated as we can wee from the above examples
+// we track the index of the minimum element as its index is equal to the number of times the array is roatated as we can see from the above examples
 // again this code is for unique elements and not for duplicates
 class Solution {
    public:
