@@ -23,30 +23,34 @@ using namespace std;
 // optimal solution
 class Solution {
    public:
-    int findmax(vector<int>& piles, int n) {
-        int maxelement = INT_MIN;
-        for (int i = 0; i < n; i++) {
-            maxelement = max(maxelement, piles[i]);
-        }
-        return maxelement;
-    }
-    long long calculatehours(vector<int>& piles, int perhour, int n) {
+    // function to calculate total hours required to eat all bananas at a given speed
+    long long calculatehours(vector<int>& piles, int bananas, int n) {
         long long totalhours = 0;
+        // iterate through each pile and calculate the hours required to eat all bananas at the given speed
         for (int i = 0; i < n; i++) {
-            totalhours += (piles[i] + perhour - 1) / perhour;
+            // calculate hours for each pile using ceil division
+            totalhours += (piles[i] + bananas - 1) / bananas;
         }
         return totalhours;
     }
     int minEatingSpeed(vector<int>& piles, int h) {
         int n = piles.size();
+        int maxelement = INT_MIN;
+        // find the maximum number of bananas in a pile
+        for (int i = 0; i < n; i++) {
+            maxelement = max(maxelement, piles[i]);
+        }
         int low = 1;
-        int high = findmax(piles, n);
+        int high = maxelement;
         while (low <= high) {
             int mid = low + (high - low) / 2;
             long long totalh = calculatehours(piles, mid, n);
+            // if total hours is less than or equal to h, search in the left half to find a smaller speed
             if (totalh <= h) {
                 high = mid - 1;
-            } else {
+            }
+            // if total hours is greater than h, search in the right half to find a larger speed
+            else {
                 low = mid + 1;
             }
         }
@@ -63,17 +67,21 @@ class Solution {
    public:
     int minEatingSpeed(vector<int>& piles, int h) {
         int n = piles.size();
+        // find the maximum number of bananas in a pile
         int maxelement = INT_MIN;
         for (int i = 0; i < n; i++) {
             maxelement = max(maxelement, piles[i]);
         }
-        for (int i = 1; i <= maxelement; i++) {
+        // iterate from 1 to maxelement to find the minimum eating speed
+        for (int bananas = 1; bananas <= maxelement; bananas++) {
             long long totalhours = 0;
+            // calculate total hours required to eat all bananas at the current speed
             for (int j = 0; j < n; j++) {
-                totalhours += (piles[j] + i - 1) / i;
+                totalhours += (piles[j] + bananas - 1) / bananas;  // ceil division to calculate hours for each pile
             }
+            // if total hours is less than or equal to h, return the current speed
             if (totalhours <= h) {
-                return i;
+                return bananas;
             }
         }
         return -1;
