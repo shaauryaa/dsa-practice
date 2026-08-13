@@ -18,6 +18,32 @@ Output: 44*/
 #include <vector>
 using namespace std;
 
+// brute force solution
+class Solution {
+   public:
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int n = nums.size();
+        int maxelement = INT_MIN;
+        for (int i = 0; i < n; i++) {
+            maxelement = max(maxelement, nums[i]);
+        }
+        for (int divisor = 1; divisor <= maxelement; divisor++) {
+            long long divisionsum = 0;
+            for (int j = 0; j < n; j++) {
+                divisionsum += (nums[j] + divisor - 1) / divisor;
+            }
+            if (divisionsum <= threshold) {
+                return divisor;
+            }
+        }
+        return -1;
+    }
+};
+
+// brute force complexity
+// Time Complexity: O(n * maxelement), where n is the size of the input array nums and maxelement is the maximum element in nums. We iterate through all possible divisors from 1 to maxelement, and for each divisor, we calculate the division sum in O(n) time.
+// Space Complexity: O(1), as we are using a constant amount of extra space.
+
 // optimal solution
 class Solution {
    public:
