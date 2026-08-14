@@ -23,16 +23,16 @@ class Solution {
    public:
     int smallestDivisor(vector<int>& nums, int threshold) {
         int n = nums.size();
-        int maxelement = INT_MIN;
+        int maxelement = INT_MIN;  // Find the maximum element in the array
         for (int i = 0; i < n; i++) {
-            maxelement = max(maxelement, nums[i]);
+            maxelement = max(maxelement, nums[i]);  // Update the maximum element if the current element is greater
         }
-        for (int divisor = 1; divisor <= maxelement; divisor++) {
+        for (int divisor = 1; divisor <= maxelement; divisor++) {  // Iterate through all possible divisors from 1 to maxelement
             long long divisionsum = 0;
-            for (int j = 0; j < n; j++) {
-                divisionsum += (nums[j] + divisor - 1) / divisor;
+            for (int j = 0; j < n; j++) {                          // Calculate the division sum for the current divisor
+                divisionsum += (nums[j] + divisor - 1) / divisor;  // This formula calculates the ceiling of nums[j] / divisor without using floating-point division
             }
-            if (divisionsum <= threshold) {
+            if (divisionsum <= threshold) {  // If the division sum is less than or equal to the threshold, return the current divisor
                 return divisor;
             }
         }
@@ -47,34 +47,43 @@ class Solution {
 // optimal solution
 class Solution {
    public:
+    // Function to calculate the division sum for a given divisor
     long long calculateDivisionSum(vector<int>& nums, int n, int divisor) {
         long long divisionsum = 0;
         for (int i = 0; i < n; i++) {
+            // This formula calculates the ceiling of nums[i] / divisor without using floating-point division
             divisionsum += (nums[i] + divisor - 1) / divisor;
         }
         return divisionsum;
     }
     int smallestDivisor(vector<int>& nums, int threshold) {
         int n = nums.size();
+        if (n > threshold) {
+            return -1;  // Not possible to find a divisor that satisfies the condition
+        }
         int maxelement = INT_MIN;
         for (int i = 0; i < n; i++) {
-            maxelement = max(maxelement, nums[i]);
+            maxelement = max(maxelement, nums[i]);  // Find the maximum element in the array
         }
         int low = 1;
         int high = maxelement;
         while (low <= high) {
             int mid = low + (high - low) / 2;
             long long totalsum = calculateDivisionSum(nums, n, mid);
+            // If the total division sum is less than or equal to the threshold, we can try a smaller divisor
             if (totalsum <= threshold) {
                 high = mid - 1;
-            } else {
+            }
+            // If the total division sum is greater than the threshold, we need to try a larger divisor
+            else {
                 low = mid + 1;
             }
         }
-        return low;
+        return low;  // Return the smallest divisor that satisfies the condition
     }
 };
 
 // optimal complexity
-// Time Complexity: O(n * log(maxelement)), where n is the size of the input array nums and maxelement is the maximum element in nums. The binary search takes log(maxelement) iterations, and for each iteration, we calculate the division sum in O(n) time.
+// Time Complexity: O(n * log(maxelement)), where n is the size of the input array nums and maxelement is the maximum element in nums.
+// The binary search takes log(maxelement) iterations, and for each iteration, we calculate the division sum in O(n) time.
 // Space Complexity: O(1), as we are using a constant amount of extra space.
