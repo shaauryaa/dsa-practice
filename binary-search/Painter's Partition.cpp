@@ -15,7 +15,7 @@ public:
         int painters = 1;
         int totallength = 0;
         for (int i = 0; i < n; i++) {
-            if (totallength += C[i] <= length) {
+            if (totallength + C[i] <= length) {
                 totallength += C[i];
             } else {
                 painters++;
@@ -52,7 +52,7 @@ public:
         int painters = 1;
         int totallength = 0;
         for (int i = 0; i < n; i++) {
-            if (totallength += C[i] <= length) {
+            if (totallength + C[i] <= length) {
                 totallength += C[i];
             } else {
                 painters++;
