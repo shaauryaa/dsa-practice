@@ -11,11 +11,11 @@ using namespace std;
 // brute force approach
 class Solution {
    public:
-    int calculatesplits(vector<int>& nums, int sum, int n) {
+    int calculatesplits(vector<int>& nums, int maxsum, int n) {
         int splits = 1;
         long long totalsum = 0;
         for (int i = 0; i < n; i++) {
-            if (totalsum + nums[i] <= sum) {
+            if (totalsum + nums[i] <= maxsum) {
                 totalsum += nums[i];
             } else {
                 splits++;
