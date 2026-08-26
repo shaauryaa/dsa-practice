@@ -9,7 +9,7 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | Topic | Problems Solved | README |
 |---|---|---|
 | Arrays | 28 | [arrays/README.md](arrays/README.md) |
-| Binary Search | 19 | [binary-search/README.md](binary-search/README.md) |
+| Binary Search | 20 | [binary-search/README.md](binary-search/README.md) |
 | Linked List | 0 | — |
 | Recursion | 0 | — |
 | Strings | 0 | — |
