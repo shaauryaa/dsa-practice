@@ -12,7 +12,7 @@ Tracking my progress through [Striver's SDE Sheet](https://takeuforward.org/inte
 | Binary Search | 21 | [binary-search/README.md](binary-search/README.md) |
 | Linked List | 0 | — |
 | Recursion | 0 | — |
-| Strings | 0 | — |
+| Strings | 1 | [strings/README.md](strings/README.md) |
 | Stacks & Queues | 0 | — |
 | Greedy | 0 | — |
 | Trees | 0 | — |
